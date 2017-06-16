@@ -1,0 +1,69 @@
+﻿body
+{    margin-left: 109px;
+}
+
+
+.style1
+{
+    width:auto;
+    direction:rtl;
+    text-align:center;
+    font:tahoma;
+    font-size:medium;
+
+}
+.style2
+{
+    text-align:right;
+    direction: rtl;
+     font-size:small;
+    font-family: Tahoma;
+    border-width: thin;
+    border-style:  groove;
+    border-color: GrayText;
+   
+    
+}
+
+.style5
+{
+  
+    
+text-align:center;
+font-family: Tahoma;
+ 
+}
+#Button1
+{
+  font-family:Tahoma;
+    margin-top: 0px;
+}
+
+#Button2
+{
+  font-family:Tahoma;
+  width:auto;
+    
+}
+
+#Button3
+{
+  font-family:Tahoma;
+  width:auto;
+    
+}
+#Button5
+{
+  font-family:Tahoma;
+  width:auto;
+    
+}
+#col1
+{
+    text-align:right;
+    
+}
+#legend
+{
+    
+}

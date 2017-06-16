@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://mobile.parsian-bank.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://mobile.parsian-bank.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://mobile.parsian-bank.com/">
+      <s:element name="Magfa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Text" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MagfaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MagfaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Atiye">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Text" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AtiyeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AtiyeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="MagfaSoapIn">
+    <wsdl:part name="parameters" element="tns:Magfa" />
+  </wsdl:message>
+  <wsdl:message name="MagfaSoapOut">
+    <wsdl:part name="parameters" element="tns:MagfaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AtiyeSoapIn">
+    <wsdl:part name="parameters" element="tns:Atiye" />
+  </wsdl:message>
+  <wsdl:message name="AtiyeSoapOut">
+    <wsdl:part name="parameters" element="tns:AtiyeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ProvidersSoap">
+    <wsdl:operation name="Magfa">
+      <wsdl:input message="tns:MagfaSoapIn" />
+      <wsdl:output message="tns:MagfaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Atiye">
+      <wsdl:input message="tns:AtiyeSoapIn" />
+      <wsdl:output message="tns:AtiyeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProvidersSoap" type="tns:ProvidersSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Magfa">
+      <soap:operation soapAction="http://mobile.parsian-bank.com/Magfa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Atiye">
+      <soap:operation soapAction="http://mobile.parsian-bank.com/Atiye" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ProvidersSoap12" type="tns:ProvidersSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Magfa">
+      <soap12:operation soapAction="http://mobile.parsian-bank.com/Magfa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Atiye">
+      <soap12:operation soapAction="http://mobile.parsian-bank.com/Atiye" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Providers">
+    <wsdl:port name="ProvidersSoap" binding="tns:ProvidersSoap">
+      <soap:address location="http://192.168.2.53/smsproviders/providers.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ProvidersSoap12" binding="tns:ProvidersSoap12">
+      <soap12:address location="http://192.168.2.53/smsproviders/providers.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
